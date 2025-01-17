@@ -24,7 +24,7 @@
 }
 </script>
 
-<div
+<button
     class="w-[6%] h-auto bg-primary-600-300-token shadow-md rounded-lg flex flex-col items-center p-3 space-y-2 
     border border-primary-500-400-token hover:shadow-lg transition-all duration-200 
     cursor-pointer relative box-border"
@@ -45,4 +45,4 @@
         <div class="absolute bg-gray-400 bg-opacity-50 rounded-lg flex items-center justify-center">
         </div>
     {/if}
-</div>
+</button>
