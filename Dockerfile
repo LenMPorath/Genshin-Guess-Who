@@ -1,14 +1,18 @@
-FROM node:22-alpine AS builder
+# Schritt 1: Verwenden eines Node.js-Images für den Build
+FROM node:18-alpine AS builder
 LABEL Developers="Len Porath"
 WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install
 COPY . .
-RUN npm ci && npm run build && npm prune --omit-dev
+RUN npm run build
 
-FROM node:22-alpine
+# Schritt 2: Produktionseinstellung mit minimalem Image
+FROM node:18-alpine AS runner
 WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm install --omit=dev
 COPY --from=builder /app/build ./build
-COPY --from=builder /app/node_modules ./node_modules
-COPY package.json ./package.json
-EXPOSE 3000
 ENV NODE_ENV=production
-CMD [ "node", "build" ]
+CMD ["node", "./build/index.js"]
+EXPOSE 3000
