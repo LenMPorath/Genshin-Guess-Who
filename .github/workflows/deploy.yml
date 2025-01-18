@@ -26,7 +26,7 @@ jobs:
           
           cd ~/automated/ggw/app
           git pull origin main
-          docker build -t sveltekit-skeleton:latest .
+          docker build -t lenmp/genshinguesswho:latest .
           cd ..
 
           docker compose -f ~/automated/ggw/docker-compose.yml up -d --build
