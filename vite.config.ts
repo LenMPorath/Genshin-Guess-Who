@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 import path from 'path';
 
 export default defineConfig({
-	plugins: [sveltekit(), purgeCss()],
+	plugins: [sveltekit(), purgeCss({ legacy: true }),],
 	resolve: {
 		alias: {
 		  '$src': path.resolve('./src'),
