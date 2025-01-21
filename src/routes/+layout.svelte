@@ -31,7 +31,7 @@
 			<svelte:fragment slot="lead">
 				<div class="flex items-baseline">
 					<strong class="text-xl uppercase mr-3">Genshin Guess Who</strong>
-					<p class="text-sm uppercase">Made by Len aka. Shuryo</p>
+					<p class="text-sm uppercase">Made by Len</p>
 				</div>
 			</svelte:fragment>
 		</AppBar>
