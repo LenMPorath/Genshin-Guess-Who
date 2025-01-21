@@ -1,5 +1,5 @@
 <script lang="ts">
-	import '../app.postcss';
+	import '$src/app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 
 	// Highlight JS
