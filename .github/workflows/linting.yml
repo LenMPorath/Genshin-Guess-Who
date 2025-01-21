@@ -6,7 +6,9 @@ on:
       - main
 
 concurrency:
+  group: linting
   cancel-in-progress: true
+
 jobs:
   prettier:
     name: Prettier
