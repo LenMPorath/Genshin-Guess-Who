@@ -1,17 +1,14 @@
-FROM node:lts-alpine
+FROM node:22-alpine AS builder
 LABEL Developers="Len Porath"
-
 WORKDIR /app
+COPY . .
+RUN npm ci && npm run build && npm prune --omit-dev
 
-# Alle nötigen Dateien kopieren
-COPY package.json package-lock.json ./
-COPY tsconfig.json svelte.config.js vite.config.ts tailwind.config.ts ./
-COPY src ./src
-COPY static ./static
-
-RUN npm ci
-RUN npm run build
-
+FROM node:22-alpine
+WORKDIR /app
+COPY --from=builder /app/build ./build
+COPY --from=builder /app/node_modules ./node_modules
+COPY package.json ./package.json
 EXPOSE 3000
-
-CMD ["node", "build/index.js"]
+ENV NODE_ENV=production
+CMD [ "node", "build" ]
