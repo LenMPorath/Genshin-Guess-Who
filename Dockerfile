@@ -5,7 +5,7 @@ WORKDIR /app
 
 # Alle nötigen Dateien kopieren
 COPY package.json package-lock.json ./
-COPY tsconfig.json svelte.config.js vite.config.ts ./
+COPY tsconfig.json svelte.config.js vite.config.ts tailwind.config.ts ./
 COPY src ./src
 COPY static ./static
 
