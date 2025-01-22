@@ -11,10 +11,9 @@
 	} from '@skeletonlabs/skeleton';
 	import FullscreenModal from '$lib/FullscreenModal.svelte';
 
-	// SkeletonUI Stores initialisieren
+	// necessary for modals
 	initializeStores();
 
-	// Highlight JS
 	import hljs from 'highlight.js/lib/core';
 	import 'highlight.js/styles/github-dark.css';
 	import { storeHighlightJs } from '@skeletonlabs/skeleton';

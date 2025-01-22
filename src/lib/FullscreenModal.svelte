@@ -1,16 +1,13 @@
 <script lang="ts">
 	import type { SvelteComponent } from 'svelte';
-
-	// Stores
 	import { getModalStore } from '@skeletonlabs/skeleton';
 
-	// Props
-	/** Exposes parent props to this component. */
+	// exposes parent props to this component
 	export let parent: SvelteComponent;
 
 	const modalStore = getModalStore();
 
-	// Notes: Use `w-screen h-screen` to fit the visible canvas size.
+	// w-screen h-screen to fit the visible canvas size
 	const cBase = 'bg-surface-100-800-token w-screen h-screen p-4 flex justify-center items-center';
 
 	const dynamicSmallTextSize = 'sm:text-sm md:text-xs lg:text-sm text-sm';
@@ -21,7 +18,12 @@
 	<div class="modal-example-fullscreen {cBase}">
 		<div class="flex flex-col items-center space-y-5">
 			<div class="space-y-4 sm:space-y-2 text-gray-800 dark:text-gray-200">
-				<h1 class="sm:text-3xl text-xl font-bold text-gray-900 dark:text-white">Privacy Policy</h1>
+				<div class="flex items-baseline space-x-4">
+					<h1 class="sm:text-3xl text-xl font-bold text-gray-900 dark:text-white">
+						Privacy Policy
+					</h1>
+					<p class={dynamicSmallTextSize}>Last updated: Jan 22nd, 2025</p>
+				</div>
 				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
 					No Data Collection
 				</h3>
