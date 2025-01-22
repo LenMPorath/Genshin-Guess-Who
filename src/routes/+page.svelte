@@ -2,7 +2,7 @@
 	import CharacterTile from '$lib/CharacterTile.svelte';
 	import { SlideToggle } from '@skeletonlabs/skeleton';
 
-	export let data: { characters: { path: string; stars: number }[] };
+	export let data: { characters: { path: string; stars: number; disabled: boolean }[] };
 	let fourStarsActive = true;
 	let fiveStarsActive = true;
 
@@ -10,34 +10,45 @@
 	$: filteredCharacters = data.characters.filter(
 		(char) => (fourStarsActive && char.stars === 4) || (fiveStarsActive && char.stars === 5)
 	);
+
+	// Setze alle Charaktere auf `disabled = false`
+	function resetCharacters() {
+		data.characters.forEach((char) => (char.disabled = false));
+		filteredCharacters = [...filteredCharacters];
+	}
 </script>
 
-<!-- Filter-Slider -->
-<div class="flex gap-4 p-2 justify-center">
-	<SlideToggle
-		name="four-stars"
-		bind:checked={fourStarsActive}
-		active="bg-[#B180BA]"
-		background="bg-[#645D87]"
-		size="lg"
+<div class="flex flex-col items-center gap-4 p-2 sm:flex-row sm:justify-center">
+	<div class="flex gap-4 justify-center">
+		<SlideToggle
+			name="four-stars"
+			bind:checked={fourStarsActive}
+			active="bg-[#B180BA]"
+			background="bg-[#645D87]"
+		>
+			Four Stars
+		</SlideToggle>
+		<SlideToggle
+			name="five-stars"
+			bind:checked={fiveStarsActive}
+			active="bg-[#C77E2C]"
+			background="bg-[#936234]"
+		>
+			Five Stars
+		</SlideToggle>
+	</div>
+	<button
+		class="btn variant-filled rounded-full w-1/2 sm:w-auto sm:mt-0"
+		on:click={resetCharacters}
 	>
-		Four Stars
-	</SlideToggle>
-	<SlideToggle
-		name="five-stars"
-		bind:checked={fiveStarsActive}
-		active="bg-[#C77E2C]"
-		background="bg-[#936234]"
-		size="lg"
-	>
-		Five Stars
-	</SlideToggle>
+		Reset Characters
+	</button>
 </div>
-<!-- Grid-Container für die Kacheln -->
+
 <div class="flex flex-wrap gap-3 p-2 justify-center">
 	{#if filteredCharacters.length > 0}
 		{#each filteredCharacters as char}
-			<CharacterTile charIconPath={char.path} />
+			<CharacterTile charIconPath={char.path} bind:disabled={char.disabled} />
 		{/each}
 	{:else}
 		<p class="col-span-full text-center text-primary-700-200-token">No characters available.</p>
