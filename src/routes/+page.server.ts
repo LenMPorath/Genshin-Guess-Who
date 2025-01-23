@@ -16,7 +16,7 @@ async function generateCharacterArray(): Promise<CharacterEntry[]> {
 				.map((file) => ({
 					path: `/char_icons_${stars}star/${file}`,
 					stars,
-					disabled: false,
+					disabled: false
 				}));
 		} catch (error) {
 			console.error(`Error reading directory ${directoryPath}:`, error);

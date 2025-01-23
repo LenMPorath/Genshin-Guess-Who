@@ -66,7 +66,7 @@
 			Five Stars
 		</SlideToggle>
 	</div>
-	
+
 	<div class="flex gap-4 justify-center">
 		<button
 			class="btn variant-filled rounded-full w-1/2 sm:w-auto sm:mt-0"
