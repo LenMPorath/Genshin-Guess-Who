@@ -1,6 +1,7 @@
 <script lang="ts">
 	export let charIconPath: string;
 	export let disabled: boolean = false;
+	export let onToggle: (charPath: string) => void;
 
 	$: charName = formatCharacterName(charIconPath);
 
@@ -21,7 +22,7 @@
     border border-primary-500-400-token hover:shadow-lg transition-all duration-200
     cursor-pointer relative box-border"
 	class:opacity-50={disabled}
-	on:click={() => (disabled = !disabled)}
+	on:click={() => onToggle(charIconPath)}
 >
 	<div class="w-[100%] bg-gray-100 rounded-full overflow-hidden border border-gray-300">
 		<img src={charIconPath} alt={charName} class="object-cover w-full h-full" />

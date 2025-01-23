@@ -4,6 +4,7 @@ import path from 'path';
 type CharacterEntry = {
 	path: string;
 	stars: number;
+	disabled: boolean;
 };
 
 async function generateCharacterArray(): Promise<CharacterEntry[]> {
@@ -14,7 +15,8 @@ async function generateCharacterArray(): Promise<CharacterEntry[]> {
 				.filter((file) => file.endsWith('.webp'))
 				.map((file) => ({
 					path: `/char_icons_${stars}star/${file}`,
-					stars
+					stars,
+					disabled: false,
 				}));
 		} catch (error) {
 			console.error(`Error reading directory ${directoryPath}:`, error);
@@ -33,13 +35,7 @@ async function generateCharacterArray(): Promise<CharacterEntry[]> {
 		const nameA = formatCharacterName(a.path);
 		const nameB = formatCharacterName(b.path);
 
-		if (nameA < nameB) {
-			return -1; // a kommt vor b
-		} else if (nameA > nameB) {
-			return 1; // b kommt vor a
-		} else {
-			return 0; // a und b sind gleich
-		}
+		return nameA.localeCompare(nameB);
 	});
 
 	return combinedCharacters;
