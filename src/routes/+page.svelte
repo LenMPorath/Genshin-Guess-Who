@@ -16,7 +16,8 @@
 	function computeVisibleCharacters() {
 		return data.characters.filter((char) => {
 			// Filter für 4- und 5-Sterne-Charaktere
-			const starsFilter = (fourStarsActive && char.stars === 4) || (fiveStarsActive && char.stars === 5);
+			const starsFilter =
+				(fourStarsActive && char.stars === 4) || (fiveStarsActive && char.stars === 5);
 			// Filter für markierte Charaktere
 			const hideFilter = hideMarkedCharacters ? !char.disabled : true;
 			return starsFilter && hideFilter;
