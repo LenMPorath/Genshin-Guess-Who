@@ -4,45 +4,55 @@
 
 	export let data: { characters: { path: string; stars: number; disabled: boolean }[] };
 
+	// Gebundener Bool für die SlideToggles
 	let fourStarsActive = true;
 	let fiveStarsActive = true;
+	let hideMarkedCharacters = false;
 
-	// Undo-Stack
-	let undoStack: { path: string; previousState: boolean }[] = [];
+	let undoStack: { path: string; previousState: boolean }[] = []; // Stack für das Rückgängigmachen von Aktionen
+	$: visibleCharacters = computeVisibleCharacters();
 
-	// Berechnete Liste der gefilterten Charaktere
-	$: filteredCharacters = data.characters.filter(
-		(char) => (fourStarsActive && char.stars === 4) || (fiveStarsActive && char.stars === 5)
-	);
+	// Sichtbare Charaktere berechnen
+	function computeVisibleCharacters() {
+		return data.characters.filter((char) => {
+			// Filter für 4- und 5-Sterne-Charaktere
+			const starsFilter = (fourStarsActive && char.stars === 4) || (fiveStarsActive && char.stars === 5);
+			// Filter für markierte Charaktere
+			const hideFilter = hideMarkedCharacters ? !char.disabled : true;
+			return starsFilter && hideFilter;
+		});
+	}
 
-	// Setze alle Charaktere auf `disabled = false`
+	// Funktion für den Reset-Button
 	function resetCharacters() {
 		data.characters.forEach((char) => {
 			char.disabled = false;
 		});
-		filteredCharacters = [...filteredCharacters];
 		undoStack = [];
+		visibleCharacters = computeVisibleCharacters();
 	}
 
-	function toggleCharacterState(charPath: string) {
-		const char = data.characters.find((c) => c.path === charPath);
-		if (char) {
-			// Zustand zum Undo-Stack hinzufügen
-			undoStack.push({ path: char.path, previousState: char.disabled });
-			// Zustand umschalten
-			char.disabled = !char.disabled;
-			filteredCharacters = [...filteredCharacters];
-		}
-	}
-
+	// Funktion für den Undo-Button
 	function undoLastAction() {
 		const lastAction = undoStack.pop();
 		if (lastAction) {
 			const char = data.characters.find((c) => c.path === lastAction.path);
 			if (char) {
 				char.disabled = lastAction.previousState;
-				filteredCharacters = [...filteredCharacters];
+				visibleCharacters = computeVisibleCharacters();
 			}
+		}
+	}
+
+	// Funktion beim Klicken auf einen Charakter
+	function toggleCharacterState(charPath: string) {
+		const char = data.characters.find((c) => c.path === charPath);
+		if (char) {
+			// Charakter zum Undo-Stack hinzufügen
+			undoStack.push({ path: char.path, previousState: char.disabled });
+			// Charakter de-/aktivieren
+			char.disabled = !char.disabled;
+			visibleCharacters = computeVisibleCharacters();
 		}
 	}
 </script>
@@ -54,6 +64,9 @@
 			bind:checked={fourStarsActive}
 			active="bg-[#B180BA]"
 			background="bg-[#645D87]"
+			on:change={() => {
+				visibleCharacters = computeVisibleCharacters();
+			}}
 		>
 			Four Stars
 		</SlideToggle>
@@ -62,8 +75,25 @@
 			bind:checked={fiveStarsActive}
 			active="bg-[#C77E2C]"
 			background="bg-[#936234]"
+			on:change={() => {
+				visibleCharacters = computeVisibleCharacters();
+			}}
 		>
 			Five Stars
+		</SlideToggle>
+	</div>
+
+	<div class="flex gap-4 justify-center">
+		<SlideToggle
+			name="hide-marked"
+			bind:checked={hideMarkedCharacters}
+			active="bg-[#4CAF50]"
+			background="bg-[#388E3C]"
+			on:change={() => {
+				visibleCharacters = computeVisibleCharacters();
+			}}
+		>
+			Hide marked Characters
 		</SlideToggle>
 	</div>
 
@@ -84,8 +114,8 @@
 </div>
 
 <div class="flex flex-wrap gap-3 p-2 justify-center">
-	{#if filteredCharacters.length > 0}
-		{#each filteredCharacters as char}
+	{#if visibleCharacters.length > 0}
+		{#each visibleCharacters as char}
 			<CharacterTile
 				charIconPath={char.path}
 				bind:disabled={char.disabled}
