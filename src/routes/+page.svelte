@@ -62,6 +62,7 @@
 	<div class="flex gap-4 justify-center">
 		<SlideToggle
 			name="four-stars"
+			data-cy="toggle-four-stars"
 			bind:checked={fourStarsActive}
 			active="bg-[#B180BA]"
 			background="bg-[#645D87]"
@@ -73,6 +74,7 @@
 		</SlideToggle>
 		<SlideToggle
 			name="five-stars"
+			data-cy="toggle-five-stars"
 			bind:checked={fiveStarsActive}
 			active="bg-[#C77E2C]"
 			background="bg-[#936234]"
@@ -87,6 +89,7 @@
 	<div class="flex gap-4 justify-center">
 		<SlideToggle
 			name="hide-marked"
+			data-cy="toggle-hide-chars"
 			bind:checked={hideMarkedCharacters}
 			active="bg-[#4CAF50]"
 			background="bg-[#388E3C]"
@@ -101,12 +104,14 @@
 	<div class="flex gap-4 justify-center">
 		<button
 			class="btn variant-filled rounded-full w-1/2 sm:w-auto sm:mt-0"
+			data-cy="button-reset"
 			on:click={resetCharacters}
 		>
 			Reset Characters
 		</button>
 		<button
 			class="btn variant-filled rounded-full w-1/2 sm:w-auto sm:mt-0"
+			data-cy="button-undo"
 			on:click={undoLastAction}
 		>
 			Undo

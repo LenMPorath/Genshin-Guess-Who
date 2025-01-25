@@ -53,7 +53,7 @@
 					page.
 				</p>
 			</div>
-			<button class="btn btn-sm lg:btn variant-filled" on:click={parent.onClose}>× Close</button>
+			<button class="btn btn-sm lg:btn variant-filled" data-cy="button-modal-close" on:click={parent.onClose}>× Close</button>
 		</div>
 	</div>
 {/if}
