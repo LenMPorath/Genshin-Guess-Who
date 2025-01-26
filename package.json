@@ -1,6 +1,6 @@
 {
 	"name": "genshin-guess-who",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
@@ -8,8 +8,8 @@
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"cy run": "cypress run",
-		"cy open": "cypress open",
+		"cy run": "cross-env BASE_URL=http://localhost:5173 cypress run",
+		"cy open": "cross-env BASE_URL=http://localhost:5173 cypress open",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write ."
 	},
@@ -25,6 +25,7 @@
 		"@types/eslint": "^9.6.0",
 		"@types/node": "22.10.5",
 		"autoprefixer": "10.4.20",
+		"cross-env": "^7.0.3",
 		"cypress": "^14.0.0",
 		"eslint": "^9.0.0",
 		"eslint-config-prettier": "^9.1.0",

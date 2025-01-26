@@ -8,7 +8,7 @@ export default defineConfig({
 		}
 	},
 	e2e: {
-		baseUrl: 'http://localhost:5173',
+		baseUrl: process.env.BASE_URL || 'http://localhost:3000',
 		specPattern: 'cypress/e2e/**/*.cy.{js,jsx,ts,tsx}'
 	}
 });

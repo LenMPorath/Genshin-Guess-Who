@@ -37,9 +37,9 @@ jobs:
       - name: Start server
         run: npm run build && npm run preview &
         env:
-          PORT: 5173
+          PORT: 4173
       - name: Wait for server to be ready
-        run: npx wait-on http://localhost:5173
+        run: npx wait-on http://localhost:4173
       - name: Run Cypress tests
         run: npx cypress run
 
