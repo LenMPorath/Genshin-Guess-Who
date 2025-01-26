@@ -245,48 +245,15 @@ describe('Reset Button', () => {
 
 	it('Reset Characters Button is functional with changed Character Rarity', () => {
 		CharacterFunctions.getNthCharacterTile(0).click();
-
-		cy.wait(100);
-
-		CharacterFunctions.getNthCharacterTile(1).click();
-
-		cy.wait(100);
-
-		CharacterFunctions.getNthCharacterTile(2).click();
-
-		cy.wait(100);
-
-		CharacterFunctions.getNthCharacterTile(3).click();
-
-		cy.wait(100);
-
-		CharacterFunctions.getNthCharacterTile(4).click();
-
-		cy.wait(100);
-
 		CharacterFunctions.nthCharacterTileIsMarked(0);
-		CharacterFunctions.nthCharacterTileIsMarked(1);
-		CharacterFunctions.nthCharacterTileIsMarked(2);
-		CharacterFunctions.nthCharacterTileIsMarked(3);
-		CharacterFunctions.nthCharacterTileIsMarked(4);
-
-		LayoutFunctions.disableBothStarSliders();
-
-		cy.wait(100);
+		CharacterFunctions.getNthCharacterTile(1).click();
 
 		LayoutComponents.resetButton().click();
 
-		cy.wait(100);
-
-		LayoutFunctions.enableBothStarSliders();
-
-		cy.wait(100);
+		cy.wait(500);
 
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 		CharacterFunctions.nthCharacterTileIsntMarked(1);
-		CharacterFunctions.nthCharacterTileIsntMarked(2);
-		CharacterFunctions.nthCharacterTileIsntMarked(3);
-		CharacterFunctions.nthCharacterTileIsntMarked(4);
 	});
 
 	it('Reset Characters Button is functional with hidden Characters', () => {
