@@ -352,7 +352,7 @@ describe('Undo Button', () => {
 		CharacterFunctions.getNthCharacterTile(0).click();
 
 		cy.wait(100);
-		
+
 		CharacterFunctions.nthCharacterTileIsMarked(0);
 		LayoutFunctions.enableOnlyFiveStarSlider();
 
@@ -375,7 +375,7 @@ describe('Undo Button', () => {
 		LayoutFunctions.enableHideMarkedSlider();
 
 		cy.wait(100);
-		
+
 		LayoutFunctions.hideMarkedSliderIsEnabled();
 
 		CharacterFunctions.getNthCharacterTile(0)
@@ -425,21 +425,21 @@ describe('Undo Button', () => {
 		LayoutComponents.resetButton().click();
 
 		cy.wait(100);
-		
+
 		LayoutComponents.undoButton().click();
 
 		cy.wait(100);
-		
+
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 		LayoutComponents.undoButton().click();
 
 		cy.wait(100);
-		
+
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 		LayoutComponents.undoButton().click();
 
 		cy.wait(100);
-		
+
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 	});
 });
