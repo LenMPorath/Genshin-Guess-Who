@@ -15,7 +15,7 @@
 </script>
 
 {#if $modalStore[0]}
-	<div class="modal-example-fullscreen {cBase}">
+	<div data-cy="modal-privacy" class="modal-example-fullscreen {cBase}">
 		<div class="flex flex-col items-center space-y-5">
 			<div class="space-y-4 sm:space-y-2 text-gray-800 dark:text-gray-200">
 				<div class="flex items-baseline space-x-4">
@@ -53,7 +53,11 @@
 					page.
 				</p>
 			</div>
-			<button class="btn btn-sm lg:btn variant-filled" data-cy="button-modal-close" on:click={parent.onClose}>× Close</button>
+			<button
+				class="btn btn-sm lg:btn variant-filled"
+				data-cy="button-modal-privacy-close"
+				on:click={parent.onClose}>× Close</button
+			>
 		</div>
 	</div>
 {/if}

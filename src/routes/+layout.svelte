@@ -56,12 +56,20 @@
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<div class="flex flex-col sm:flex-row items-baseline">
-					<strong data-cy="text-headline" class="text-xl uppercase sm:mr-3">Genshin Guess Who</strong>
+					<strong data-cy="text-headline" class="text-xl uppercase sm:mr-3"
+						>Genshin Guess Who</strong
+					>
 					<p data-cy="text-sub-headline" class="text-sm uppercase">Made by Len</p>
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<button class="sm:text-sm text-xs" data-cy="button-privacy-policy" on:click={() => openModal()}> Privacy Policy </button>
+				<button
+					class="sm:text-sm text-xs"
+					data-cy="button-privacy-policy"
+					on:click={() => openModal()}
+				>
+					Privacy Policy
+				</button>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
@@ -69,13 +77,3 @@
 	<!-- Page Route Content -->
 	<slot />
 </AppShell>
-
-{#if $modalStore[0]}
-	<div class="modal-example-fullscreen {cBase}">
-		<div class="flex flex-col items-center space-y-4">
-			<h2 class="h2">Full Screen Modal</h2>
-			<p>This demonstrates a full screen modal dialog.</p>
-			<button class="btn variant-filled" on:click={parent.onclose}>× Close</button>
-		</div>
-	</div>
-{/if}

@@ -21,6 +21,28 @@ jobs:
       - name: Run linting
         run: npm run lint
 
+  test:
+    name: Run Cypress E2E Tests
+    runs-on: ubuntu-22.04
+    needs: lint
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm install --save-dev
+      - name: Start server
+        run: npm run build && npm run preview &
+        env:
+          PORT: 5173
+      - name: Wait for server to be ready
+        run: npx wait-on http://localhost:5173
+      - name: Run Cypress tests
+        run: npx cypress run
+
   deploy:
     name: Deploy
     runs-on: ubuntu-latest

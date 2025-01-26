@@ -23,15 +23,20 @@
     cursor-pointer relative box-border"
 	class:opacity-50={disabled}
 	on:click={() => onToggle(charIconPath)}
-	data-cy="char-tile-{charName.toLocaleLowerCase().replace(" ", "-")}"
+	data-cy="char-tile"
 >
 	<div class="w-[100%] bg-gray-100 rounded-full overflow-hidden border border-gray-300">
-		<img src={charIconPath} alt={charName} data-cy="char-tile-image-{charName.toLocaleLowerCase().replace(" ", "-")}" class="object-cover w-full h-full" />
+		<img
+			src={charIconPath}
+			alt={charName}
+			data-cy="char-tile-image"
+			class="object-cover w-full h-full"
+		/>
 	</div>
 
 	<h1
 		class="text-center sm:text-xs text-[clamp(0.3rem,3vw,0.52rem)] break-words sm:font-sans leading-tight text-gray-800"
-		data-cy="char-tile-name-{charName.toLocaleLowerCase().replace(" ", "-")}"
+		data-cy="char-tile-name"
 	>
 		{charName}
 	</h1>
