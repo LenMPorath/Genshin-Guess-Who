@@ -245,8 +245,14 @@ describe('Reset Button', () => {
 
 	it('Reset Characters Button is functional with changed Character Rarity', () => {
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
+
 		CharacterFunctions.nthCharacterTileIsMarked(0);
 		CharacterFunctions.getNthCharacterTile(1).click();
+
+		cy.wait(100);
+
 		CharacterFunctions.nthCharacterTileIsMarked(1);
 
 		LayoutComponents.resetButton().click();
