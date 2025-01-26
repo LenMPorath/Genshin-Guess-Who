@@ -2,7 +2,7 @@ import { CharacterFunctions, LayoutComponents, LayoutFunctions } from '../suppor
 import assert from 'assert';
 
 beforeEach(() => {
-	cy.visit("/");
+	cy.visit('/');
 });
 
 describe('Elements should be visible', () => {
