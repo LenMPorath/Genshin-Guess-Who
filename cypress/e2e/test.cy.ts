@@ -247,6 +247,7 @@ describe('Reset Button', () => {
 		CharacterFunctions.getNthCharacterTile(0).click();
 		CharacterFunctions.nthCharacterTileIsMarked(0);
 		CharacterFunctions.getNthCharacterTile(1).click();
+		CharacterFunctions.nthCharacterTileIsMarked(1);
 
 		LayoutComponents.resetButton().click();
 
