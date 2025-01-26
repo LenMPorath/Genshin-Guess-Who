@@ -37,7 +37,7 @@ describe('Elements should be visible', () => {
 });
 
 describe('Four Star Slider', () => {
-	let fourStars: string[] = [];
+	const fourStars: string[] = [];
 	it('Slider toggle removes/adds Four Star Characters from the list', () => {
 		LayoutFunctions.enableOnlyFourStarSlider();
 
@@ -94,7 +94,7 @@ describe('Four Star Slider', () => {
 });
 
 describe('Five Star Slider', () => {
-	let fiveStars: string[] = [];
+	const fiveStars: string[] = [];
 	it('Slider toggle removes/adds Five Star Characters from the list', () => {
 		LayoutFunctions.enableOnlyFiveStarSlider();
 
@@ -269,7 +269,7 @@ describe('Reset Button', () => {
 	});
 
 	it('Reset Characters Button is functional with hidden Characters', () => {
-		let firstCharNames: string[] = [];
+		const firstCharNames: string[] = [];
 
 		for (let i = 0; i < 5; i++) {
 			CharacterFunctions.getNthCharacterTile(0)

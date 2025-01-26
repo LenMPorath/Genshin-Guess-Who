@@ -36,7 +36,6 @@
 	const modalStore = getModalStore();
 
 	const modalComponent: ModalComponent = { ref: FullscreenModal };
-	const cBase = 'bg-surface-100-800-token w-screen h-screen p-4 flex justify-center items-center';
 
 	function openModal() {
 		const modal: ModalSettings = {
