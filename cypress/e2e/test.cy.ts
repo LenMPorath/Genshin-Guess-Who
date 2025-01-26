@@ -257,9 +257,15 @@ describe('Reset Button', () => {
 
 		LayoutFunctions.disableBothStarSliders();
 
+		cy.wait(100);
+
 		LayoutComponents.resetButton().click();
 
+		cy.wait(100);
+
 		LayoutFunctions.enableBothStarSliders();
+
+		cy.wait(100);
 
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 		CharacterFunctions.nthCharacterTileIsntMarked(1);
@@ -281,6 +287,8 @@ describe('Reset Button', () => {
 		}
 
 		LayoutFunctions.enableHideMarkedSlider();
+
+		cy.wait(100);
 
 		CharacterFunctions.getNthCharacterTile(0).click();
 		CharacterFunctions.getNthCharacterTile(0).click();
@@ -325,17 +333,39 @@ describe('Reset Button', () => {
 describe('Undo Button', () => {
 	it('Undo Button is functional', () => {
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
+
 		CharacterFunctions.nthCharacterTileIsMarked(0);
+
 		LayoutComponents.undoButton().click();
+
+		cy.wait(100);
+
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 	});
 	it('Undo Button is functional with hidden Characters per Rarity Slider', () => {
 		LayoutFunctions.enableOnlyFourStarSlider();
+
+		cy.wait(100);
+
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
+		
 		CharacterFunctions.nthCharacterTileIsMarked(0);
 		LayoutFunctions.enableOnlyFiveStarSlider();
+
+		cy.wait(100);
+
 		LayoutComponents.undoButton().click();
+
+		cy.wait(100);
+
 		LayoutFunctions.enableOnlyFourStarSlider();
+
+		cy.wait(100);
+
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 	});
 	it('Undo Button is functional with hidden Characters per Hide marked Characters Slider', () => {
@@ -343,6 +373,9 @@ describe('Undo Button', () => {
 
 		LayoutFunctions.hideMarkedSliderIsntEnabled();
 		LayoutFunctions.enableHideMarkedSlider();
+
+		cy.wait(100);
+		
 		LayoutFunctions.hideMarkedSliderIsEnabled();
 
 		CharacterFunctions.getNthCharacterTile(0)
@@ -355,6 +388,8 @@ describe('Undo Button', () => {
 		cy.wait(100);
 
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
 
 		CharacterFunctions.getMaxCharacterTiles().then((maxTiles) => {
 			for (let i = 0; i < maxTiles; i++) {
@@ -372,6 +407,8 @@ describe('Undo Button', () => {
 
 		LayoutComponents.undoButton().click();
 
+		cy.wait(100);
+
 		CharacterFunctions.getNthCharacterTile(0)
 			.find('[data-cy="char-tile-name"]')
 			.invoke('text')
@@ -381,13 +418,28 @@ describe('Undo Button', () => {
 	});
 	it("Undo Button doesn't undo after pressing the Reset Button", () => {
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
+
 		CharacterFunctions.nthCharacterTileIsMarked(0);
 		LayoutComponents.resetButton().click();
+
+		cy.wait(100);
+		
 		LayoutComponents.undoButton().click();
+
+		cy.wait(100);
+		
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 		LayoutComponents.undoButton().click();
+
+		cy.wait(100);
+		
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 		LayoutComponents.undoButton().click();
+
+		cy.wait(100);
+		
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 	});
 });
