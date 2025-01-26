@@ -268,15 +268,31 @@ describe('Reset Button', () => {
 				});
 		}
 
+		cy.wait(100);
+
 		LayoutFunctions.enableHideMarkedSlider();
 
 		cy.wait(100);
 
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
+
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
+
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
+
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
+
 		CharacterFunctions.getNthCharacterTile(0).click();
+
+		cy.wait(100);
 
 		CharacterFunctions.getMaxCharacterTiles().then((maxTiles) => {
 			for (let i = 0; i < maxTiles; i++) {
@@ -292,7 +308,11 @@ describe('Reset Button', () => {
 			}
 		});
 
+		cy.wait(100);
+
 		LayoutComponents.resetButton().click();
+
+		cy.wait(100);
 
 		CharacterFunctions.getMaxCharacterTiles().then((maxTiles) => {
 			for (let i = 0; i < maxTiles; i++) {
@@ -307,6 +327,8 @@ describe('Reset Button', () => {
 					});
 			}
 		});
+
+		cy.wait(100);
 
 		assert(firstCharNames.length == 0);
 	});
