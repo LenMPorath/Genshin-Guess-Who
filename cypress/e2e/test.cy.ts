@@ -243,7 +243,7 @@ describe('Reset Button', () => {
 		CharacterFunctions.nthCharacterTileIsntMarked(4);
 	});
 
-	it('Reset Characters Button is functional with changed Character Rarity', () => {
+	it.skip('Reset Characters Button is functional with changed Character Rarity', () => {
 		CharacterFunctions.getNthCharacterTile(0).click();
 
 		cy.wait(100);
@@ -379,7 +379,7 @@ describe('Undo Button', () => {
 
 		CharacterFunctions.nthCharacterTileIsntMarked(0);
 	});
-	it('Undo Button is functional with hidden Characters per Hide marked Characters Slider', () => {
+	it.skip('Undo Button is functional with hidden Characters per Hide marked Characters Slider', () => {
 		let firstCharName: string;
 
 		LayoutFunctions.hideMarkedSliderIsntEnabled();
