@@ -61,9 +61,10 @@
 					<div class="flex flex-col sm:flex-row items-baseline space-x-2">
 						<p data-cy="text-headline-version" class="text">v1.1.0</p>
 						<p data-cy="text-sub-headline" class="text-sm uppercase">Made by Len</p>
-					<div class="flex flex-col sm:flex-row items-baseline">
-				</div>
-			</svelte:fragment>
+						<div class="flex flex-col sm:flex-row items-baseline"></div>
+					</div>
+				</div></svelte:fragment
+			>
 			<svelte:fragment slot="trail">
 				<button
 					class="sm:text-sm text-xs"
