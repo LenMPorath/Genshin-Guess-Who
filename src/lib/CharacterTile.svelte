@@ -15,14 +15,19 @@
 			.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
 			.join(' ');
 	}
+
+	function disableRightClick(event: MouseEvent) {
+		event.preventDefault();
+	}
 </script>
 
 <button
-	class="sm:w-[15%] md:w-[10%] lg:w-[6%] w-[17%] sm:h-auto bg-primary-600-300-token shadow-md rounded-lg flex flex-col items-center sm:p-3 p-1 space-y-2
-    border border-primary-500-400-token hover:shadow-lg transition-all duration-200
+	class="sm:w-[15%] md:w-[10%] lg:w-[6%] w-[17%] sm:h-auto bg-primary-400-500-token shadow-md rounded-lg flex flex-col items-center sm:p-3 p-1 space-y-2
+    border border-primary-300-600-token hover:shadow-lg transition-all duration-200
     cursor-pointer relative box-border"
 	class:opacity-50={disabled}
 	on:click={() => onToggle(charIconPath)}
+	on:contextmenu={disableRightClick}
 	data-cy="char-tile"
 >
 	<div class="w-[100%] bg-gray-100 rounded-full overflow-hidden border border-gray-300">
@@ -34,12 +39,12 @@
 		/>
 	</div>
 
-	<h1
-		class="text-center sm:text-xs text-[clamp(0.3rem,3vw,0.52rem)] break-words sm:font-sans leading-tight text-gray-800"
+	<p
+		class="text-center sm:text-sm text-[clamp(0.3rem,3vw,0.52rem)] break-words sm:font-sans font-semibold leading-tight text-on-primary-token"
 		data-cy="char-tile-name"
 	>
 		{charName}
-	</h1>
+	</p>
 
 	{#if disabled}
 		<div class="absolute bg-opacity-50 rounded-lg flex items-center justify-center">

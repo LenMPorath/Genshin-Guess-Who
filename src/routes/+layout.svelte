@@ -10,6 +10,7 @@
 		type ModalComponent
 	} from '@skeletonlabs/skeleton';
 	import FullscreenModal from '$lib/FullscreenModal.svelte';
+	import { LightSwitch } from '@skeletonlabs/skeleton';
 
 	// necessary for modals
 	initializeStores();
@@ -54,17 +55,16 @@
 		<!-- App Bar -->
 		<AppBar>
 			<svelte:fragment slot="lead">
-				<div class="flex flex-col sm:flex-row items-baseline">
-					<strong data-cy="text-headline" class="text-xl uppercase sm:mr-3"
-						>Genshin Guess Who</strong
-					>
-					<div class="flex flex-col sm:flex-row items-baseline space-x-2">
-						<p data-cy="text-headline-version" class="text">v1.1.0</p>
-						<p data-cy="text-sub-headline" class="text-sm uppercase">Made by Len</p>
-						<div class="flex flex-col sm:flex-row items-baseline"></div>
+				<div class="flex flex-col sm:flex-row items-baseline space-x-2">
+					<div class="flex flex-row items-baseline sm:-space-x-2 space-x-1">
+						<strong data-cy="text-headline" class="text-xl uppercase sm:mr-3"
+							>Genshin Guess Who</strong
+						>
+						<p data-cy="text-headline-version" class="text">v1.1.0a</p>
 					</div>
-				</div></svelte:fragment
-			>
+					<p data-cy="text-sub-headline" class="text-sm uppercase">Made by Len</p>
+				</div>
+			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<button
 					class="sm:text-sm text-xs"
@@ -73,6 +73,7 @@
 				>
 					Privacy Policy
 				</button>
+				<LightSwitch />
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
