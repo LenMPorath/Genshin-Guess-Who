@@ -42,8 +42,8 @@
 	</h1>
 
 	{#if disabled}
-		<div
-			class="absolute bg-gray-400 bg-opacity-50 rounded-lg flex items-center justify-center"
-		></div>
+		<div class="absolute bg-opacity-50 rounded-lg flex items-center justify-center">
+			<img src="/cross.webp" alt="" class="object-cover w-2/3 h-full" />
+		</div>
 	{/if}
 </button>

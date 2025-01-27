@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CharacterTile from '$lib/CharacterTile.svelte';
-	import { SlideToggle } from '@skeletonlabs/skeleton';
+	import { Accordion, AccordionItem, SlideToggle } from '@skeletonlabs/skeleton';
 
 	export let data: { characters: { path: string; stars: number; disabled: boolean }[] };
 
@@ -57,6 +57,65 @@
 		}
 	}
 </script>
+
+<div class="flex flex-col items-center gap-4 p-2 sm:flex-row sm:justify-center">
+	<div class="flex gap-4 justify-center w-full md:w-2/5">
+		<Accordion class="card">
+			<AccordionItem>
+				<svelte:fragment slot="summary">
+					<p class="text-primary-700-200-token font-bold" data-cy="accordion-item-how-to-play">
+						How to Play
+					</p>
+				</svelte:fragment>
+				<svelte:fragment slot="content">
+					<div data-cy="accordion-item-how-to-play-content" class="space-y-3">
+						<p class="text-primary-700-200-token">
+							Each player selects a character from the available pool, keeping their choice a
+							secret.
+						</p>
+						<p class="text-primary-700-200-token">
+							Players then take turns asking yes-or-no questions (e.g., "Does your character have a
+							hat?") to narrow down the possibilities.
+						</p>
+						<p class="text-primary-700-200-token">
+							Based on the answers, eliminate characters that don't fit the description. The first
+							player to correctly guess their opponent's character wins!
+						</p>
+					</div>
+				</svelte:fragment>
+			</AccordionItem>
+			<AccordionItem>
+				<svelte:fragment slot="summary">
+					<p class="text-primary-700-200-token font-bold" data-cy="accordion-item-information">
+						Information Regarding this Website
+					</p></svelte:fragment
+				>
+				<svelte:fragment slot="content">
+					<div data-cy="accordion-item-information-content" class="space-y-3">
+						<p class="text-primary-700-200-token">
+							"Genshin Guess Who" aka. "genshin-guess-who.com" is an independent, fan-created
+							website and is not affiliated with or endorsed by HoYoverse.
+						</p>
+						<p class="text-primary-700-200-token">
+							Genshin Impact, along with all associated game content, character designs, images, and
+							materials, are trademarks and copyrights owned by HoYoverse.
+						</p>
+						<p class="text-primary-700-200-token">
+							All visuals, trademarks, and intellectual properties displayed on this website belong
+							to their respective owners and are used here solely for non-commercial, entertainment,
+							and informational purposes.
+						</p>
+						<p class="text-primary-700-200-token">
+							This website is intended for fan enjoyment and community engagement. If you have any
+							concerns regarding copyright or intellectual property, please contact me directly via
+							Discord (shuryo).
+						</p>
+					</div>
+				</svelte:fragment>
+			</AccordionItem>
+		</Accordion>
+	</div>
+</div>
 
 <div class="flex flex-col items-center gap-4 p-2 sm:flex-row sm:justify-center">
 	<div class="flex gap-4 justify-center">

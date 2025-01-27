@@ -58,7 +58,10 @@
 					<strong data-cy="text-headline" class="text-xl uppercase sm:mr-3"
 						>Genshin Guess Who</strong
 					>
-					<p data-cy="text-sub-headline" class="text-sm uppercase">Made by Len</p>
+					<div class="flex flex-col sm:flex-row items-baseline space-x-2">
+						<p data-cy="text-headline-version" class="text">v1.1.0</p>
+						<p data-cy="text-sub-headline" class="text-sm uppercase">Made by Len</p>
+					<div class="flex flex-col sm:flex-row items-baseline">
 				</div>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
