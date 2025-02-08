@@ -9,10 +9,32 @@
 		const fileName = path.split('/').pop();
 		if (!fileName) throw new Error('Invalid path');
 
-		return fileName
-			.replace('.webp', '')
+		let name = fileName.replace('.webp', '');
+
+		// Handle words in parentheses
+		name = name.replace(/\(([^)]+)\)/g, (_, p1: string) => {
+			return `(${p1
+				.split(' ')
+				.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+				.join(' ')})`;
+		});
+
+		// Split by underscore, capitalize each word, and join with space
+		return name
 			.split('_')
-			.map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+			.map((word: string) => {
+				// Check if the word includes parentheses
+				if (word.includes('(')) {
+					return word.replace(/\(([^)]+)\)/, (_, p1: string) => {
+						return `(${p1
+							.split(' ')
+							.map((word: string) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+							.join(' ')})`;
+					});
+				} else {
+					return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+				}
+			})
 			.join(' ');
 	}
 

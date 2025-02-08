@@ -2,11 +2,17 @@
 	import CharacterTile from '$lib/CharacterTile.svelte';
 	import { Accordion, AccordionItem, SlideToggle } from '@skeletonlabs/skeleton';
 
-	export let data: { characters: { path: string; stars: number; disabled: boolean }[] };
+	export let data: { characters: { path: string; stars: number; game: Game; disabled: boolean }[] };
+
+	enum Game {
+		HonkaiStarRail = 'hsr',
+		GenshinImpact = 'genshin'
+	}
 
 	// Gebundener Bool für die SlideToggles
 	let fourStarsActive = true;
 	let fiveStarsActive = true;
+	let hsrActive = false;
 	let hideMarkedCharacters = false;
 
 	let undoStack: { path: string; previousState: boolean }[] = []; // Stack für das Rückgängigmachen von Aktionen
@@ -18,9 +24,13 @@
 			// Filter für 4- und 5-Sterne-Charaktere
 			const starsFilter =
 				(fourStarsActive && char.stars === 4) || (fiveStarsActive && char.stars === 5);
+			// Filter nach HSR aktiv
+			const hsrFilter =
+				(hsrActive && char.game === Game.HonkaiStarRail) ||
+				(!hsrActive && char.game === Game.GenshinImpact);
 			// Filter für markierte Charaktere
 			const hideFilter = hideMarkedCharacters ? !char.disabled : true;
-			return starsFilter && hideFilter;
+			return starsFilter && hideFilter && hsrFilter;
 		});
 	}
 
@@ -157,6 +167,21 @@
 			}}
 		>
 			Hide marked Characters
+		</SlideToggle>
+	</div>
+
+	<div class="flex gap-4 justify-center">
+		<SlideToggle
+			name="hsr-active"
+			data-cy="toggle-hsr-chars"
+			bind:checked={hsrActive}
+			active="bg-[#4d4dff]"
+			background="bg-[#3535b1]"
+			on:change={() => {
+				visibleCharacters = computeVisibleCharacters();
+			}}
+		>
+			Use Honkai Star Rail Characters
 		</SlideToggle>
 	</div>
 

@@ -2,19 +2,26 @@ import fs from 'fs';
 import path from 'path';
 
 type CharacterEntry = {
+	game: string;
 	path: string;
 	stars: number;
 	disabled: boolean;
 };
 
+enum Game {
+	HonkaiStarRail = 'hsr',
+	GenshinImpact = 'genshin'
+}
+
 async function generateCharacterArray(): Promise<CharacterEntry[]> {
-	const readDirectory = (directoryPath: string, stars: number): CharacterEntry[] => {
+	const readDirectory = (directoryPath: string, game: string, stars: number): CharacterEntry[] => {
 		try {
 			return fs
 				.readdirSync(directoryPath)
 				.filter((file) => file.endsWith('.webp'))
 				.map((file) => ({
-					path: `/char_icons_${stars}star/${file}`,
+					path: `/${game}/char_icons_${stars}star/${file}`,
+					game,
 					stars,
 					disabled: false
 				}));
@@ -24,11 +31,34 @@ async function generateCharacterArray(): Promise<CharacterEntry[]> {
 		}
 	};
 
-	const fourStarCharacters = readDirectory(path.resolve('static/char_icons_4star'), 4);
-	const fiveStarCharacters = readDirectory(path.resolve('static/char_icons_5star'), 5);
+	const hsrfourStarCharacters = readDirectory(
+		path.resolve('static/hsr/char_icons_4star'),
+		Game.HonkaiStarRail,
+		4
+	);
+	const hsrfiveStarCharacters = readDirectory(
+		path.resolve('static/hsr/char_icons_5star'),
+		Game.HonkaiStarRail,
+		5
+	);
+	const genshinfourStarCharacters = readDirectory(
+		path.resolve('static/genshin/char_icons_4star'),
+		Game.GenshinImpact,
+		4
+	);
+	const genshinfiveStarCharacters = readDirectory(
+		path.resolve('static/genshin/char_icons_5star'),
+		Game.GenshinImpact,
+		5
+	);
 
 	// Kombiniere die beiden Arrays und sortiere nach dem Charakternamen
-	const combinedCharacters = [...fourStarCharacters, ...fiveStarCharacters];
+	const combinedCharacters = [
+		...hsrfourStarCharacters,
+		...hsrfiveStarCharacters,
+		...genshinfourStarCharacters,
+		...genshinfiveStarCharacters
+	];
 
 	// Sortiere das Array alphabetisch anhand der Charakternamen
 	combinedCharacters.sort((a, b) => {
