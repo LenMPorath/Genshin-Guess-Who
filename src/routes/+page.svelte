@@ -179,6 +179,7 @@
 			background="bg-[#3535b1]"
 			on:change={() => {
 				visibleCharacters = computeVisibleCharacters();
+				resetCharacters();
 			}}
 		>
 			Use Honkai Star Rail Characters
