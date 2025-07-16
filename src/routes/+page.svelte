@@ -73,9 +73,11 @@
 		<Accordion class="card">
 			<AccordionItem>
 				<svelte:fragment slot="summary">
-					<p class="text-primary-900-50-token font-bold" data-cy="accordion-item-how-to-play">
-						How to Play
-					</p>
+				  	<div data-cy="accordion-item-information" class="flex flex-row items-center">
+						<p class="text-primary-900-50-token font-bold" data-cy="accordion-item-how-to-play">
+							How to Play
+						</p>
+					</div>
 				</svelte:fragment>
 				<svelte:fragment slot="content">
 					<div data-cy="accordion-item-how-to-play-content" class="space-y-3">
@@ -94,32 +96,66 @@
 					</div>
 				</svelte:fragment>
 			</AccordionItem>
+  			<hr class="hr " />
 			<AccordionItem>
 				<svelte:fragment slot="summary">
-					<p class="text-primary-900-50-token font-bold" data-cy="accordion-item-information">
-						Information Regarding this Website
-					</p></svelte:fragment
-				>
+				  	<div data-cy="accordion-item-information" class="flex flex-row items-center">
+						<p class="text-primary-900-50-token font-bold" data-cy="accordion-item-information">
+							Information Regarding this Website
+						</p>
+					</div>
+				</svelte:fragment>
 				<svelte:fragment slot="content">
 					<div data-cy="accordion-item-information-content" class="space-y-3">
 						<p class="text-primary-900-50-token">
-							"Genshin Guess Who" aka. "genshin-guess-who.com" is an independent, fan-created
-							website and is not affiliated with or endorsed by HoYoverse.
+							"Genshin Guess Who" aka. "genshin-guess-who.com" is an independent, fan-created website 
+							and is not affiliated with or endorsed by HoYoverse.
 						</p>
 						<p class="text-primary-900-50-token">
-							Genshin Impact, along with all associated game content, character designs, images, and
-							materials, are trademarks and copyrights owned by HoYoverse.
+							Genshin Impact and Honkai: Star Rail, along with all associated game content, 
+							character designs, images, and materials, are trademarks and copyrights owned by HoYoverse.
 						</p>
 						<p class="text-primary-900-50-token">
-							All visuals, trademarks, and intellectual properties displayed on this website belong
-							to their respective owners and are used here solely for non-commercial, entertainment,
+							All visuals, trademarks, and intellectual properties displayed on this website belong 
+							to their respective owners and are used here solely for non-commercial, entertainment, 
 							and informational purposes.
 						</p>
 						<p class="text-primary-900-50-token">
-							This website is intended for fan enjoyment and community engagement. If you have any
-							concerns regarding copyright or intellectual property, please contact me directly via
-							Discord (shuryo).
+							If you have any concerns regarding copyright or intellectual property, please contact me directly via Discord (shuryo).
 						</p>
+					</div>
+				</svelte:fragment>
+			</AccordionItem>
+  			<hr class="hr " />
+			<AccordionItem>
+				<svelte:fragment slot="summary">
+				  <div data-cy="accordion-item-information" class="flex flex-row items-center">
+				    <p class="text-primary-900-50-token font-bold">
+				      Currently Supported Game Versions
+				    </p>
+				    <p class="text-primary-900-50-token font-light text-sm ml-2">
+				      Last Updated: 15.07.2025
+				    </p>
+				  </div>
+				</svelte:fragment>
+				<svelte:fragment slot="content">
+					<div data-cy="accordion-item-information-content" class="space-y-3 pl-4">
+						<div class="flex flex-row space-x-1">
+							<p class="text-primary-900-50-token font-bold">
+								Genshin Impact
+							</p>
+							<p class="text-primary-900-50-token">
+								- Version 5.8
+							</p>
+						</div>
+						<div class="flex flex-row space-x-1">
+							<p class="text-primary-900-50-token font-bold">
+								Honkai: Star Rail
+							</p>
+							<p class="text-primary-900-50-token">
+								- Version 2.8
+							</p>
+						</div>
 					</div>
 				</svelte:fragment>
 			</AccordionItem>

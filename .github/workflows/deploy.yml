@@ -38,12 +38,12 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} << 'EOF'
             # Optional: Sicherstellen, dass alte Container gestoppt werden
-            docker compose -f ~/automated/ggw/docker-compose.yml down || true
+            docker compose -f ~/docker/automated/ggw/docker-compose.yml down || true
             
             cd ~/automated/ggw/app
             git pull origin main
             docker build -t lenmp/genshinguesswho:latest .
             cd ..
 
-            docker compose -f ~/automated/ggw/docker-compose.yml up -d --build
+            docker compose -f ~/docker/automated/ggw/docker-compose.yml up -d --build
           EOF

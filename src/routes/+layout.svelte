@@ -60,7 +60,7 @@
 						<strong data-cy="text-headline" class="text-xl uppercase sm:mr-3"
 							>Genshin Guess Who</strong
 						>
-						<p data-cy="text-headline-version" class="text">v1.2.0b</p>
+						<p data-cy="text-headline-version" class="text">v1.3.0</p>
 					</div>
 					<p data-cy="text-sub-headline" class="text-sm uppercase">Made by Len</p>
 				</div>
