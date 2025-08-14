@@ -52,7 +52,9 @@
 	on:contextmenu={disableRightClick}
 	data-cy="char-tile"
 >
-	<div class="w-[100%] bg-primary-50-900-token rounded-full overflow-hidden border border-primary-100-800-token">
+	<div
+		class="w-[100%] bg-primary-50-900-token rounded-full overflow-hidden border border-primary-100-800-token"
+	>
 		<img
 			src={charIconPath}
 			alt={charName}

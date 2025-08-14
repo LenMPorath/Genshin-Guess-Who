@@ -6,8 +6,7 @@
 		Modal,
 		initializeStores,
 		getModalStore,
-		type ModalSettings,
-		type ModalComponent
+		type ModalSettings
 	} from '@skeletonlabs/skeleton';
 	import PrivacyPolicyModal from '$lib/PrivacyPolicyModal.svelte';
 	import PatchNotesModal from '$lib/PatchNotesModal.svelte';
@@ -37,7 +36,6 @@
 
 	const modalStore = getModalStore();
 
-
 	function openPatchNotesModal() {
 		const modal: ModalSettings = {
 			type: 'component',
@@ -45,7 +43,7 @@
 		};
 		modalStore.trigger(modal);
 	}
-	
+
 	function openPrivacyPolicyModal() {
 		const modal: ModalSettings = {
 			type: 'component',

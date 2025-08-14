@@ -119,7 +119,8 @@
 						<p class="text-primary-900-50-token">
 							All visuals, trademarks, and intellectual properties displayed on this website belong
 							to their respective owners and are used here solely for non-commercial, entertainment,
-							and informational purposes. The images on this website originated from prydwen.com and homdgcat.wiki.
+							and informational purposes. The images on this website originated from prydwen.com and
+							homdgcat.wiki.
 						</p>
 						<p class="text-primary-900-50-token">
 							If you have any concerns regarding copyright or intellectual property, please contact
@@ -216,14 +217,14 @@
 
 	<div class="flex gap-4 justify-center">
 		<button
-			class="btn variant-filled rounded-full w-1/2 sm:w-auto sm:mt-0"
+			class="btn variant-soft-secondary rounded-full w-1/2 sm:w-auto sm:mt-0"
 			data-cy="button-reset"
 			on:click={resetCharacters}
 		>
 			Reset Characters
 		</button>
 		<button
-			class="btn variant-filled rounded-full w-1/2 sm:w-auto sm:mt-0"
+			class="btn variant-soft-error rounded-full w-1/2 sm:w-auto sm:mt-0"
 			data-cy="button-undo"
 			on:click={undoLastAction}
 		>
