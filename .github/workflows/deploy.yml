@@ -40,7 +40,7 @@ jobs:
             # Optional: Sicherstellen, dass alte Container gestoppt werden
             docker compose -f ~/docker/automated/ggw/docker-compose.yml down || true
             
-            cd ~/automated/ggw/app
+            cd ~/docker/automated/ggw/app
             git pull origin main
             docker build -t lenmp/genshinguesswho:latest .
             cd ..

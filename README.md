@@ -13,7 +13,6 @@
   Toggle between four-star and five-star characters using a slider.
 
 - **Mark and Manage Characters**
-
   - Left-click to mark characters and cross them out.
   - **Hide Marked Characters**: Toggle slider to remove crossed-out characters from the visible list.
   - **Undo**: Revert the last marking/unmarking action.

@@ -6,10 +6,10 @@
 		Modal,
 		initializeStores,
 		getModalStore,
-		type ModalSettings,
-		type ModalComponent
+		type ModalSettings
 	} from '@skeletonlabs/skeleton';
-	import FullscreenModal from '$lib/FullscreenModal.svelte';
+	import PrivacyPolicyModal from '$lib/PrivacyPolicyModal.svelte';
+	import PatchNotesModal from '$lib/PatchNotesModal.svelte';
 	import { LightSwitch } from '@skeletonlabs/skeleton';
 
 	// necessary for modals
@@ -36,12 +36,18 @@
 
 	const modalStore = getModalStore();
 
-	const modalComponent: ModalComponent = { ref: FullscreenModal };
-
-	function openModal() {
+	function openPatchNotesModal() {
 		const modal: ModalSettings = {
 			type: 'component',
-			component: modalComponent
+			component: { ref: PatchNotesModal }
+		};
+		modalStore.trigger(modal);
+	}
+
+	function openPrivacyPolicyModal() {
+		const modal: ModalSettings = {
+			type: 'component',
+			component: { ref: PrivacyPolicyModal }
 		};
 		modalStore.trigger(modal);
 	}
@@ -60,7 +66,13 @@
 						<strong data-cy="text-headline" class="text-xl uppercase sm:mr-3"
 							>Genshin Guess Who</strong
 						>
-						<p data-cy="text-headline-version" class="text">v1.3.0</p>
+						<button
+							class="text"
+							data-cy="text-headline-version"
+							on:click={() => openPatchNotesModal()}
+						>
+							v1.4.0
+						</button>
 					</div>
 					<p data-cy="text-sub-headline" class="text-sm uppercase">Made by Len</p>
 				</div>
@@ -69,7 +81,7 @@
 				<button
 					class="sm:text-sm text-xs"
 					data-cy="button-privacy-policy"
-					on:click={() => openModal()}
+					on:click={() => openPrivacyPolicyModal()}
 				>
 					Privacy Policy
 				</button>
