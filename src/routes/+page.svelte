@@ -119,7 +119,7 @@
 						<p class="text-primary-900-50-token">
 							All visuals, trademarks, and intellectual properties displayed on this website belong
 							to their respective owners and are used here solely for non-commercial, entertainment,
-							and informational purposes.
+							and informational purposes. The images on this website originated from prydwen.com and homdgcat.wiki.
 						</p>
 						<p class="text-primary-900-50-token">
 							If you have any concerns regarding copyright or intellectual property, please contact
@@ -134,7 +134,7 @@
 					<div data-cy="accordion-item-information" class="flex flex-row items-center">
 						<p class="text-primary-900-50-token font-bold">Currently Supported Game Versions</p>
 						<p class="text-primary-900-50-token font-light text-sm ml-2">
-							Last Updated: 15.07.2025
+							Last Updated: 14.08.2025
 						</p>
 					</div>
 				</svelte:fragment>
@@ -142,11 +142,11 @@
 					<div data-cy="accordion-item-information-content" class="space-y-3 pl-4">
 						<div class="flex flex-row space-x-1">
 							<p class="text-primary-900-50-token font-bold">Genshin Impact</p>
-							<p class="text-primary-900-50-token">- Version 5.8</p>
+							<p class="text-primary-900-50-token">- Version 6.0</p>
 						</div>
 						<div class="flex flex-row space-x-1">
 							<p class="text-primary-900-50-token font-bold">Honkai: Star Rail</p>
-							<p class="text-primary-900-50-token">- Version 2.8</p>
+							<p class="text-primary-900-50-token">- Version 3.6</p>
 						</div>
 					</div>
 				</svelte:fragment>

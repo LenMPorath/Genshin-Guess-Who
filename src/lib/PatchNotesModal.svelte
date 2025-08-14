@@ -20,37 +20,72 @@
 			<div class="space-y-4 sm:space-y-2 text-gray-800 dark:text-gray-200">
 				<div class="flex items-baseline space-x-4">
 					<h1 class="sm:text-3xl text-xl font-bold text-gray-900 dark:text-white">
-						Privacy Policy
+						Patch Notes
 					</h1>
-					<p class={dynamicSmallTextSize}>Last updated: Jan 22nd, 2025</p>
+					<p class={dynamicSmallTextSize}>Last updated: Aug 14th, 2025</p>
 				</div>
 				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
-					No Data Collection
+					1.4.0
 				</h3>
 				<p class={dynamicSmallTextSize}>
-					This application does not collect personal data. No cookies or analytics tools are used to
-					track user behavior.
+					Added Genshin Impact 5.8 and 6.0 characters
+				</p>
+				<p class={dynamicSmallTextSize}>
+					Added HSR 3.2, 3.3, 3.4, 3.5, 3.6 characters
+				</p>
+				<p class={dynamicSmallTextSize}>
+					Updated all HSR Icons
+				</p>
+				<p class={dynamicSmallTextSize}>
+					Improved Light/Dark-Mode
+				</p>
+				<p class={dynamicSmallTextSize}>
+					Added Patch Notes
 				</p>
 				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
-					External Links
+					1.3.0
 				</h3>
 				<p class={dynamicSmallTextSize}>
-					Links to external websites may be included. Please refer to their privacy policies as we
-					are not responsible for their practices.
+					Added Genshin Impact 5.6 and 5.7 characters
+				</p>
+				<p class={dynamicSmallTextSize}>
+					Added a new drawer in the accordion for additional information regarding the currently supported game versions
 				</p>
 				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
-					Server Logging
+					1.2.0b
 				</h3>
 				<p class={dynamicSmallTextSize}>
-					Server logs may record IP addresses and timestamps for security purposes but are not used
-					to identify individuals.
+					Added missing March 7th (Hunt), Changed some styling
 				</p>
 				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
-					Changes to This Policy
+					1.2.0a
 				</h3>
 				<p class={dynamicSmallTextSize}>
-					This privacy policy may be updated. The latest version will always be published on this
-					page.
+					Removed a bug, where upon switching between Genshin and HSR mode, already selected Tiles won't be reset
+				</p>
+				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
+					1.2.0
+				</h3>
+				<p class={dynamicSmallTextSize}>
+					Added HSR Characters up to 3.1
+				</p>
+				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
+					1.1.0a
+				</h3>
+				<p class={dynamicSmallTextSize}>
+					Aesthetic Changes
+				</p>
+				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
+					1.1.0 
+				</h3>
+				<p class={dynamicSmallTextSize}>
+					Added an Accordion Drawer on top of the page for game rules and more information
+				</p>
+				<h3 class="{dynamicHeadlineTextSize} font-semibold text-gray-900 dark:text-white">
+					1.0.0
+				</h3>
+				<p class={dynamicSmallTextSize}>
+					Base Release
 				</p>
 			</div>
 			<button
